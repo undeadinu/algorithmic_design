@@ -1,12 +1,10 @@
-add_library('controlP5')
-
-from renderer import Renderer
+from renderer import *
 
 renderer = Renderer()
 
 def setup():
-    global renderer    
-    size(600, 600)
+    global renderer  
+    size(SCREEN_WIDTH, SCREEN_HEIGHT)
     renderer.setup()
 
 def draw():

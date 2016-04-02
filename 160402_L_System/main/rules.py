@@ -2,11 +2,12 @@ import re
 
 class DrawRule:
     @classmethod
-    def forward(cls, unitLength, edge, degree):
-        diff = PVector(unitLength, 0).rotate(degree * PI / 180.0)
-        dest = PVector(edge.x, edge.y)
+    def forward(cls, unitLength, vertex, angle):
+        origin = vertex
+        diff = PVector(unitLength, 0).rotate(angle * PI / 180.0)
+        dest = PVector(origin.x, origin.y)
         dest.add(diff)
-        line(edge.x, edge.y, dest.x, dest.y)
+        line(origin.x, origin.y, dest.x, dest.y)
         return dest
     
     @classmethod
