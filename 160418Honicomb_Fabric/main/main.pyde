@@ -2,7 +2,8 @@ import math
 
 honicombs = []
 radius    = 26
-     
+number    = 16
+
 def setup():
     size(600, 600, P3D)
     stroke(220)
@@ -38,9 +39,8 @@ class Honicomb:
         self.radius = radius
         
     def draw(self):
-        num = 16
-        for r in xrange(1, num + 1):
-            self.drawHonicomb(self.radius * r / num)
+        for r in xrange(1, number + 1):
+            self.drawHonicomb(self.radius * r / number)
    
     def drawHonicomb(self, radius):
         beginShape()
@@ -49,7 +49,7 @@ class Honicomb:
                          self.point.y + radius * sin(TWO_PI / 6 * i))
             
             z  = sin(p.x / (width * 2.0) * TWO_PI) * \
-                 sin(p.y / (height * 2.0) * TWO_PI) * (cos(frameCount * 10 / TWO_PI) + 0) * 450
+                 sin(p.y / (height * 2.0) * TWO_PI) * cos(frameCount * 10 / TWO_PI) * 450
                         
             vertex(p.x, p.y, z)
         endShape()  
